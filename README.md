@@ -19,7 +19,8 @@ Using `homebrew`, install `git` and `tmux`.
 
 - Safari: [uBlock Origin](#)
 - Firefox: [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/), [Privacy Badger](https://www.eff.org/privacybadger)
-- Chrome: [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm), [Privacy Badger](https://www.eff.org/privacybadger)
+- ~Chrome: [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm), [Privacy Badger](https://www.eff.org/privacybadger)~ DO NOT USE CHROME
+- Vivaldi: [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm), [Privacy Badger](https://www.eff.org/privacybadger)
 
 Remember to set DuckDuckGo as the default search engine. Anything that it doesn't find can be quickly found using the `!g <query>` shortcut from DDG itself to offload the search to Google.
 
