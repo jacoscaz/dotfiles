@@ -51,10 +51,7 @@ Copy [`environment.sh`]('./environment.sh`) and [`aliases.sh`](./aliases.sh) to 
 Install the following extensions:
 
 - [VS Live Share](#)
-- [Gruvbox Themes](#)
 - [Vim](#)
-
-Select the `gruvbox dark` color theme using `Code --> Preferences --> Color Theme`.
 
 Edit preferences to use `Fira Code` font:
 
@@ -65,7 +62,7 @@ Edit preferences to use `Fira Code` font:
 
 ## iTerm2
 
-For the color theme, download and install [the `.itermcolors` files for Gruvbox](https://github.com/morhetz/gruvbox-contrib/blob/master/iterm2/gruvbox-dark.itermcolors).
+Use the color schemes in the `iterm2-color-schemes` folder. Check the `termtrans` option in `vimrc` when using the patched version of `Solarized Dark`.
 Set the font to `Fira Code`.
 
 ## Tmux
