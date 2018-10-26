@@ -15,8 +15,38 @@ set number               " Enable line numbers
 set ruler                " Enable line + col number
 set showtabline=2        " Show tabline
 set background=dark
-set termguicolors
-colorscheme gruvbox
+
+"""""""""""""""""""""""
+" Solarized color theme
+"""""""""""""""""""""""
+
+" From Solarized's website:
+" > If you are going to use Solarized in Terminal mode (i.e. not in a GUI version
+" > like gvim or macvim), please please please consider setting your terminal 
+" > emulator's colorscheme to used the Solarized palette. [...] If you use 
+" > Solarized without these colors, Solarized will need to be told to degrade its
+" > colorscheme to a set compatible with the limited 256 terminal palette (whereas
+" > by using the terminal's 16 ansi color values, you can set the correct, 
+" > specific values for the Solarized palette).
+
+" The following option, when enabled, tells solarized to degrade to a 8-bit
+" color palette (256 colors)
+" let g:solarized_termcolors=256
+
+" The following option, when enabled, tells solarized to use the terminal's own
+" background color. This is required when using the patched version of the 
+" patched iTerm2 Solarized Dark color scheme, which addresses issues with 
+" invisible output from tools such as 'mocha' and 'yeoman'.
+let g:solarized_termtrans=1
+
+colorscheme solarized
+
+"""""""""""""""""""""
+" Gruvbox color theme
+"""""""""""""""""""""
+
+" set termguicolors     " Enables 24-bit color mode (true-color / full-color)
+" colorscheme gruvbox
 
 """""""""
 " History
@@ -46,7 +76,8 @@ set encoding=utf-8       " Set default encoding to UTF-8
 """"""""""""""""""""""""""
 
 set lbr                  " Only wrap at specific characters
-set tw=80                " Auto wrap at 80 chars
+set tw=0                 " Auto wrap at 80 chars -- DISABLED
+set wm=0                 " Auto wrap at X characted from right border -- DISABLED
 set wrap                 " Wrap lines visually rather than actually modifying the buffer
 
 """""""""""""
@@ -58,10 +89,11 @@ set shiftwidth=2         " Set indentation behavior
 set softtabstop=2        " Set width of soft tabs (2 spaces)
 set tabstop=2            " Set width of <tab> (2 spaces)
 set ai                   " Indent as previous line
-set si                   " Automatically (in|de)crease indentation 
+" set si                   " Automatically (in|de)crease indentation -- DISABLED
 
 """""""""""
 " Backspace
 """""""""""
 
 set backspace=indent,eol,start
+
