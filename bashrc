@@ -125,5 +125,9 @@ function parse_git_dirty {
 
 export PS1="\u@\h:\W\`parse_git_branch\`$ "
 
+#
+# Needed when using bash 5.0 installed via brew.
+#
 
+export PATH="/usr/local/bin:$PATH"
 
