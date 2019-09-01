@@ -84,3 +84,20 @@ git config --global user.email "your@email"
 ```
 
 Run the same commands without the `--global` flag to customize these options on a per-project basis.
+
+## NVM
+
+After installing `nvm`, replace the default initialization lines in `.bashrc` 
+(or whichever file was modified by `nvm`) with the following:
+
+```
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  export NODE_VERSION="$(cat "$NVM_DIR/alias/default")"
+  export PATH="$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
+  alias nvm="unalias nvm && . "$NVM_DIR/nvm.sh" && . "$NVM_DIR/bash_completion" && nvm"
+fi
+```
+
+This gets around slow startup issues caused by `nvm` itself by lazy-loading it
+on demand.
