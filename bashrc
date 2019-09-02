@@ -123,7 +123,7 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\u@\h:\W\`parse_git_branch\`$ "
+export PS1="\u@\h:\W\[\033[1;31m\]\`parse_git_branch\`\[\033[00m\]$ "
 
 #
 # Needed when using bash 5.0 installed via brew.
