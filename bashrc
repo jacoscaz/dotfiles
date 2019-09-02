@@ -56,6 +56,12 @@ if locale -a | grep -q ^en_DK\.UTF-8 ; then export LC_TIME="en_DK.UTF-8"; fi
 export TIME_STYLE="posix-long-iso"
 
 #
+# Needed when using bash 5.0 installed via brew.
+#
+
+export PATH="/usr/local/bin:$PATH"
+
+#
 # Loading NVM takes around 1s, which is annoying. The following snippet 
 # replaces NVM's original initialization lines and:
 # - adds the binaries of the node version aliased as `default` to $PATH
@@ -124,10 +130,3 @@ function parse_git_dirty {
 }
 
 export PS1="\u@\h:\W\[\033[1;31m\]\`parse_git_branch\`\[\033[00m\]$ "
-
-#
-# Needed when using bash 5.0 installed via brew.
-#
-
-export PATH="/usr/local/bin:$PATH"
-
