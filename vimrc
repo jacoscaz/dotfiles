@@ -41,13 +41,6 @@ let g:solarized_termtrans=1
 
 colorscheme solarized
 
-"""""""""""""""""""""
-" Gruvbox color theme
-"""""""""""""""""""""
-
-" set termguicolors     " Enables 24-bit color mode (true-color / full-color)
-" colorscheme gruvbox
-
 """""""""
 " History
 """""""""
@@ -76,8 +69,8 @@ set encoding=utf-8       " Set default encoding to UTF-8
 """"""""""""""""""""""""""
 
 set lbr                  " Only wrap at specific characters
-set tw=0                 " Auto wrap at 80 chars -- DISABLED
-set wm=0                 " Auto wrap at X characted from right border -- DISABLED
+" set tw=0               " Auto wrap at 80 chars -- DISABLED
+" set wm=0               " Auto wrap at X characted from right border -- DISABLED
 set wrap                 " Wrap lines visually rather than actually modifying the buffer
 
 """""""""""""

@@ -1,47 +1,65 @@
 
 # DOTFILES
 
-A collection of dotfiles, commands and instructions to set up a machine with my favourite tools.
+A collection of dotfiles, commands and instructions to set up a machine with my
+favourite tools.
 
-## Things to intall on Mac OS
+## Things to install on Mac OS
 
-- [zsh + oh-my](https://ohmyz.sh)
 - [homebrew](https://brew.sh)
 - [iTerm2](https://www.iterm2.com)
-- [Docker](#)
 - [MS Visual Studio Code](https://code.visualstudio.com)
 - [nvm](https://github.com/creationix/nvm)
-- [Fira Code](https://github.com/tonsky/FiraCode)
 
-Using `homebrew`, install `git` and `tmux`.
+Then, using `homebrew`:
+
+```
+brew install bash git tmux vim wget subversion
+```
 
 ## Browsers
 
 - Safari: [uBlock Origin](#)
-- Firefox: [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/), [Privacy Badger](https://www.eff.org/privacybadger)
-- ~Chrome: [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm), [Privacy Badger](https://www.eff.org/privacybadger)~ DO NOT USE CHROME
-- Vivaldi: [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm), [Privacy Badger](https://www.eff.org/privacybadger)
+- Firefox: [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/), [Privacy Badger](https://www.eff.org/privacybadger), [Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
+- Chrome: [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm), [Privacy Badger](https://www.eff.org/privacybadger)
 
-Remember to set DuckDuckGo as the default search engine. Anything that it doesn't find can be quickly found using the `!g <query>` shortcut from DDG itself to offload the search to Google.
+Remember to set DuckDuckGo as the default search engine. Anything that it 
+doesn't find can be quickly found using the `!g <query>` shortcut from DDG
+itself to offload the search to Google.
 
 On Firefox, disable `studies` and set `do not track` to `always`. 
 
-## Locale on Mac OS
+## Locale
 
-Go to `System Preferences` --> `Language & Region` and select the `Ireland` region and `English U.S.` preferred language.
+### Setting locales on macOS
 
-## Locale on Linux
+Go to `System Preferences` --> `Language & Region` and select the `Ireland` 
+region and `English U.S.` preferred language.
 
-Make sure to enable the `en_IE.UTF-8` and (optionally) the `en_DK.UTF-8` locales by editing `/etc/locale.gen` and running `locale-gen` as root. 
+###  Setting locales on Linux
 
-Copy or symlink [`locale.sh`](./locale.sh) to your home directory and source it from:
+Make sure to enable the `en_IE.UTF-8` and (optionally) the `en_DK.UTF-8`
+locales by editing `/etc/locale.gen` and running `locale-gen` as root.
+After generating the locales, use whatever GUI tool is available to set
+them as defaults depending on the desktop environment of choice.
 
-- `/etc/profile` (global) or `~/.bash_profile` (personal) for `bash` 
-- `/etc/zprofile` (global) or `~/.zprofile` (personal) for `zsh`
+### Setting locales in the terminal
 
-## Environment variables & aliases
+See below.
 
-Copy [`environment.sh`]('./environment.sh`) and [`aliases.sh`](./aliases.sh) to your home directory and source them from: 
+## Shell
+
+- symlink `bashrc` to `~/.bashrc`
+- symlink `bash_profile` to `~/.bash_profile`
+
+These will take care of a few things, including:
+
+- setting locale-related environment variables
+- aliasing `nvm` to speed up shell initialization
+- customising bash' prompt with `git`-related info
+
+On Linux, particularly when setting up a server, parts of `bashrc` and
+`bash_profile` (such as locale settings) might be better off copied in:
 
 - `/etc/profile` (global) or `~/.bash_profile` (personal) for `bash` 
 - `/etc/zprofile` (global) or `~/.zprofile` (personal) for `zsh`
@@ -51,28 +69,20 @@ Copy [`environment.sh`]('./environment.sh`) and [`aliases.sh`](./aliases.sh) to 
 Install the following extensions:
 
 - [VS Live Share](#)
-- [Vim](#)
-
-Edit preferences to use `Fira Code` font:
-
-```
-  "editor.fontFamily": "Fira Code",
-  "editor.fontLigatures": true,
-```
 
 ## iTerm2
 
-Use the color schemes in the `iterm2-color-schemes` folder. Check the `termtrans` option in `vimrc` when using the patched version of `Solarized Dark`.
-Set the font to `Fira Code`.
+- import the color schemes in the `iterm2-color-schemes` folder
+- set the color scheme to `solarized light`.
 
 ## Tmux
 
-Copy or symlink [`tmux.conf`](./tmux.conf) to `~/.tmux.conf`.
+- copy or symlink [`tmux.conf`](./tmux.conf) to `~/.tmux.conf`.
 
 ## Vim
 
-- Copy or symlink [`vimrc`](./vimrc) to `~/.vimrc`.
-- Copy or symlink [`vim`](./vim) to `~/.vim`.
+- copy or symlink [`vimrc`](./vimrc) to `~/.vimrc`.
+- copy or symlink [`vim`](./vim) to `~/.vim`.
 
 ## Git
 
@@ -83,21 +93,5 @@ git config --global user.name "Your Name"
 git config --global user.email "your@email"
 ```
 
-Run the same commands without the `--global` flag to customize these options on a per-project basis.
-
-## NVM
-
-After installing `nvm`, replace the default initialization lines in `.bashrc` 
-(or whichever file was modified by `nvm`) with the following:
-
-```
-if [ -s "$HOME/.nvm/nvm.sh" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  export NODE_VERSION="$(cat "$NVM_DIR/alias/default")"
-  export PATH="$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
-  alias nvm="unalias nvm && . "$NVM_DIR/nvm.sh" && . "$NVM_DIR/bash_completion" && nvm"
-fi
-```
-
-This gets around slow startup issues caused by `nvm` itself by lazy-loading it
-on demand.
+Run the same commands without the `--global` flag to customize these options
+on a per-project basis.
