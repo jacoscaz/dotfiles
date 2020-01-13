@@ -67,6 +67,9 @@ export PATH="/usr/local/bin:$PATH"
 # - adds the binaries of the node version aliased as `default` to $PATH
 # - aliases the `nvm` command so that `nvm` can be lazy-loaded on-demand.
 #
+# Caution: this only works if `default` is set to an installed version
+# of node. This does **not** work if `default` references another alias.
+#
 
 if [ -s "$HOME/.nvm/nvm.sh" ]; then
   export NVM_DIR="$HOME/.nvm"
@@ -130,3 +133,6 @@ function parse_git_dirty {
 }
 
 export PS1="\u@\h:\W\[\033[1;31m\]\`parse_git_branch\`\[\033[00m\]$ "
+
+export PATH="/Users/jacoscaz/.gem/ruby/2.6.0/bin:$PATH"
+
