@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Jacopo Scazzosi
+	email = me@jacoscaz.com
+
+
+[alias]
+	adog = log --all --decorate --oneline --graph
